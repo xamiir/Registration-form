@@ -8,7 +8,7 @@ const reducerfn = (state, action) => {
   } else if (action.type === "decrement") {
     return state - 1;
   }
-  return (initValue = 1);
+  return initValue;
 };
 
 const Counter = () => {
@@ -19,6 +19,9 @@ const Counter = () => {
   };
   const decrementHandler = () => {
     dispatcher({ type: "decrement" });
+  };
+  const initValueHandler = () => {
+    dispatcher({ type: "initValue" });
   };
 
   return (
@@ -33,9 +36,10 @@ const Counter = () => {
         <button
           className="text-bold font-nunito font-bold "
           onClick={decrementHandler}
-        >
-          -
-        </button>
+        ></button>
+      </div>
+      <div className="bg-gray-500 text-white  flex  m-10 mb-0 py-1 px-10 rounded-full  ">
+        <butto onClick={initValueHandler}>Reset</butto>
       </div>
     </div>
   );
